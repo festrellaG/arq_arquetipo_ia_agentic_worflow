@@ -9,9 +9,16 @@ engine: copilot
 network: defaults
 tools:
   github:
-    toolsets: [default]
+    lockdown: false
+    min-integrity: none # This workflow is allowed to examine and comment on any issues
+    #toolsets: [default]
 safe-outputs:
+  mentions: false
+  allowed-github-references: []
   create-issue:
+    title-prefix: "[repo-status] "
+    labels: [report, daily-status]
+    close-older-issues: true
 ---
 
 # daily-report-status
